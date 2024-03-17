@@ -2,15 +2,17 @@ import cv2
 import mediapipe as mp
 
 # Open the video file for capture
-cap = cv2.VideoCapture('""""')
+cap = cv2.VideoCapture(r'data/Salto Tijera (720p).mp4')
+
 
 def main():
     # Initialize MediaPipe Pose model
     mp_pose = mp.solutions.pose
     pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5)
-    
+
     # Open the video file for capture
-    cap = cv2.VideoCapture('""""')
+    cap = cv2.VideoCapture(r'C:\Users\123la\Documents\GitHub\repositorios de github\EXERCISE\data\Salto Tijera (720p).mp4')
+
 
     while cap.isOpened():
         
