@@ -36,5 +36,5 @@ El objetivo de este proyecto es desarrollar un sistema de inteligencia artificia
 ## Perfil de LinkedIn
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/lautarohillkirk/)
-[![Youtube]https://youtu.be/BqW8KFrp8x8
+[![Youtube](https://youtu.be/BqW8KFrp8x8)
 
