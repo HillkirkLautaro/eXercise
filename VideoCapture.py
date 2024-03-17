@@ -1,51 +1,44 @@
 import cv2
-import numpy as np
+import mediapipe as mp
 
 # Open the video file for capture
-cap = cv2.VideoCapture('vtest.avi')
+cap = cv2.VideoCapture('""""')
 
-# Read the first two frames
-ret, frame1 = cap.read()
-ret, frame2 = cap.read()
+def main():
+    # Initialize MediaPipe Pose model
+    mp_pose = mp.solutions.pose
+    pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5)
+    
+    # Open the video file for capture
+    cap = cv2.VideoCapture('""""')
 
-# Print shapes of the frames
-print("Frame 1 shape:", frame1.shape)
-print("Frame 2 shape:", frame2.shape)
+    while cap.isOpened():
+        
+        ret, frame = cap.read()
+        if not ret:
+            break
 
-# Main loop to process each frame
-while cap.isOpened():
-    # Calculate the absolute difference between two consecutive frames
-    diff = cv2.absdiff(frame1, frame2)
-    
-    # Convert the difference image to grayscale
-    gray = cv2.cvtColor(diff, cv2.COLOR_BAYER_BGGR2GRAY)
-    
-    # Apply Gaussian blur to the grayscale image
-    blur = cv2.GaussianBlur(gray, (5, 5), 0)
-    
-    # Apply thresholding to the blurred image
-    _, thresh = cv2.threshold(blur, 20, 255, cv2.THRESH_BINARY)
-    
-    # Dilate the thresholded image to fill gaps in between object edges
-    dilated = cv2.dilate(thresh, None, iterations=3)
-    
-    # Find contours of objects in the dilated image
-    contours, _ = cv2.findContours(dilated, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    
-    # Draw contours on the original frame
-    cv2.drawContours(frame1, contours, -1, (0, 255, 0), 2)
-    
-    # Display the frame with drawn contours
-    cv2.imshow("feed", frame1)
-    
-    # Update frames for the next iteration
-    frame1 = frame2
-    ret, frame2 = cap.read()
-    
-    # Break the loop if the 'Esc' key is pressed
-    if cv2.waitKey(40) == 27:
-        break
+        # Convert the image to RGB
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-# Release video capture and close all windows
-cv2.destroyAllWindows()
-cap.release()
+        # Perform pose estimation
+        results = pose.process(frame_rgb)
+
+        # Draw pose landmarks on the frame
+        if results.pose_landmarks:
+            mp_drawing = mp.solutions.drawing_utils
+            mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
+
+        # Display the frame
+        cv2.imshow('Pose Estimation', frame)
+
+        # Check for exit key
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release resources
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
