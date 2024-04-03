@@ -2,7 +2,7 @@
 
 ## Resumen
 
-El objetivo de este proyecto es desarrollar un sistema de inteligencia artificial que pueda detectar si un ejercicio se está realizando de manera correcta o incorrecta. El sistema utilizará técnicas de aprendizaje automático y procesamiento de imágenes para analizar vídeos de personas ejecutando diferentes ejercicios y clasificar su forma como correcta o incorrecta.
+El objetivo de este proyecto es desarrollar un sistema de inteligencia artificial que pueda detectar si un ejercicio se está realizando de manera correcta o incorrecta. El sistema utilizará técnicas de aprendizaje automático y procesamiento de imágenes para analizar vídeos de personas ejecutando diferentes ejercicios y clasificar su ejecución como correcta o incorrecta.
 
 ## Plan del Proyecto
 
