@@ -8,22 +8,23 @@ El objetivo de este proyecto es desarrollar un sistema de inteligencia artificia
 
 1. **Recopilación de datos**:
    - Obtener un conjunto de datos que contenga vídeos etiquetados de personas realizando diferentes ejercicios.
+   - Realizar un web scrapping de "musclewiki.com/bodyweight" (Web scraping es una técnica utilizada mediante programas de software para extraer información de sitios web). ​
    - Etiquetar cada vídeo como "correcto" o "incorrecto" según la forma en que se realiza el ejercicio.
 
-2. **Preprocesamiento de datos**:
+3. **Preprocesamiento de datos**:
    - Realizar el preprocesamiento necesario en los vídeos, como redimensionar, normalizar o recortar las imágenes para mejorar la calidad y consistencia de los datos.
 
-3. **Entrenamiento del modelo**:
+4. **Entrenamiento del modelo**:
    - Utilizar una arquitectura de red neuronal convolucional (CNN) para extraer características relevantes de las imágenes de los vídeos.
    - Entrenar el modelo utilizando el conjunto de datos etiquetado para aprender a clasificar la forma de los ejercicios.
 
-4. **Validación del modelo**:
+5. **Validación del modelo**:
    - Evaluar el rendimiento del modelo utilizando un conjunto de datos de validación separado para medir su precisión y generalización a nuevos ejemplos.
 
-5. **Ajuste fino (opcional)**:
+6. **Ajuste fino (opcional)**:
    - Realizar ajustes finos en la arquitectura del modelo, los hiperparámetros de entrenamiento o el conjunto de datos para mejorar su rendimiento si es necesario.
 
-6. **Despliegue del modelo**:
+7. **Despliegue del modelo**:
    - Integrar el modelo entrenado en una aplicación o sistema más grande donde se pueda utilizar para detectar la forma correcta o incorrecta de realizar ejercicios.
 
 ## Últimos Avances
