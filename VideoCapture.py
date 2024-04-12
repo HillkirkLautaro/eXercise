@@ -21,7 +21,7 @@ def main():
     pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5)
 
     # Open video file
-    video_path = r'C:\Users\123la\Documents\GitHub\repositorios de github\EXERCISE\data\Salto Tijera (720p).mp4'  # Reemplaza 'tu_video.avi' con la ruta de tu archivo de video
+    video_path = 'data/male-bodyweight-hand-plank.mp4'  # Reemplaza 'tu_video.avi' con la ruta de tu archivo de video
     cap = cv2.VideoCapture(video_path)
 
     # Especifica el ancho y alto deseados para el video redimensionado
