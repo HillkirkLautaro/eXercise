@@ -7,34 +7,28 @@ El objetivo de este proyecto es desarrollar un sistema de inteligencia artificia
 ## Plan del Proyecto
 
 1. **Recopilación de datos**:
-   - Obtener un conjunto de datos que contenga vídeos etiquetados de personas realizando diferentes ejercicios.
-   - Realizar un web scrapping de "musclewiki.com/bodyweight" (Web scraping es una técnica utilizada mediante programas de software para extraer información de sitios web). ​
-   - Etiquetar cada vídeo como "correcto" o "incorrecto" según la forma en que se realiza el ejercicio.
+   - Se extrajo un video ejemplo de como realizar el ejercicio correctamente. Gracias a Muscle Wiki por permitir usar este video!.
+   -  
 
 3. **Preprocesamiento de datos**:
-   - Realizar el preprocesamiento necesario en los vídeos, como redimensionar, normalizar o recortar las imágenes para mejorar la calidad y consistencia de los datos.
+   - ###########
 
 4. **Entrenamiento del modelo**:
-   - Utilizar una arquitectura de red neuronal convolucional (CNN) para extraer características relevantes de las imágenes de los vídeos.
-   - Entrenar el modelo utilizando el conjunto de datos etiquetado para aprender a clasificar la forma de los ejercicios.
+   - ##############
+   - ##############
 
-5. **Validación del modelo**:
-   - Evaluar el rendimiento del modelo utilizando un conjunto de datos de validación separado para medir su precisión y generalización a nuevos ejemplos.
-
-6. **Ajuste fino (opcional)**:
-   - Realizar ajustes finos en la arquitectura del modelo, los hiperparámetros de entrenamiento o el conjunto de datos para mejorar su rendimiento si es necesario.
-
-7. **Despliegue del modelo**:
+5. **Despliegue del modelo**:
    - Integrar el modelo entrenado en una aplicación o sistema más grande donde se pueda utilizar para detectar la forma correcta o incorrecta de realizar ejercicios.
 
-## Últimos Avances
+6. **Video Ejemplo**
+   - Se grabó un video ejemplo del proyecto en ejecucion y se subio a youtube.
 
-- Recopilación y etiquetado de un conjunto de datos inicial que incluye vídeos de personas realizando una variedad de ejercicios.
-- Implementación del preprocesamiento de datos para mejorar la calidad de los vídeos y garantizar la consistencia en el conjunto de datos.
-- Experimentación con diferentes arquitecturas de CNN y técnicas de entrenamiento para encontrar el mejor modelo para la detección de ejercicios.
-- Evaluación preliminar del modelo entrenado utilizando métricas de rendimiento como precisión y recall.
+7. **Documentación**
+   - Se llevó a cabo una gran investigación para la realización de este proyecto y se guardo toda información que parecia relevante en un entorno de almacenamiento en la nube 
 
-## Perfil de LinkedIn
+## Redes sociales
+Contactame por estos medios!
+**hillkirklautaro18@gmail.com** 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/lautarohillkirk/)
 [![Youtube](https://img.shields.io/badge/Youtube-Profile-red?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=BqW8KFrp8x8&ab_channel=LautaroHillkirk)
