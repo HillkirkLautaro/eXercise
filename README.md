@@ -7,8 +7,7 @@ El objetivo de este proyecto es desarrollar un sistema de inteligencia artificia
 ## Plan del Proyecto
 
 1. **Recopilación de datos**:
-   - Se extrajo un video ejemplo de como realizar el ejercicio correctamente. Gracias a Muscle Wiki por permitir usar este video!.
-   -  
+   - Se extrajo un video ejemplo de como realizar el ejercicio correctamente.
 
 3. **Preprocesamiento de datos**:
    - ###########
