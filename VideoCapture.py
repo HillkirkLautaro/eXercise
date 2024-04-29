@@ -1,62 +1,46 @@
 import cv2
 import mediapipe as mp
 
-def resize_frame(frame, width=None, height=None):
-    if width is not None and height is not None:
-        return cv2.resize(frame, (width, height))
-    elif width is not None:
-        aspect_ratio = frame.shape[1] / frame.shape[0]
-        new_height = int(width / aspect_ratio)
-        return cv2.resize(frame, (width, new_height))
-    elif height is not None:
-        aspect_ratio = frame.shape[1] / frame.shape[0]
-        new_width = int(height * aspect_ratio)
-        return cv2.resize(frame, (new_width, height))
+# Initialize MediaPipe Pose
+mp_pose = mp.solutions.pose
+pose = mp_pose.Pose()
+
+# Load the video
+video = cv2.VideoCapture(r'data\chinup-front.mp4')
+
+# Check if video opened successfully
+if not video.isOpened(): 
+    print("Error opening video file")
+
+while(video.isOpened()):
+    # Capture frame-by-frame
+    ret, frame = video.read()
+    
+    if ret:
+        # Process the image to find pose landmarks
+        result = pose.process(frame)
+
+        # Draw the pose landmarks on the frame
+        if result.pose_landmarks:
+            for landmark in result.pose_landmarks.landmark:
+                # Get the coordinates
+                x = int(landmark.x * frame.shape[1])
+                y = int(landmark.y * frame.shape[0])
+                # Draw a small circle at each landmark
+                cv2.circle(frame, (x, y), 5, (0, 255, 0), -1)
+
+        # Display the resulting frame
+        cv2.imshow('Video', frame)
+    
     else:
-        return frame
+        # Si no hay más frames, reinicia el video
+        video.release()
+        video = cv2.VideoCapture(r'data\chinup-front.mp4')
 
-def main():
-    # Initialize MediaPipe Pose model
-    mp_pose = mp.solutions.pose
-    pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5)
+    # Quita si se presiona 'q', espera 1 ms
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break          
 
-    # Open video file
-    video_path = 'data/male-bodyweight-hand-plank.mp4'  # Reemplaza 'tu_video.avi' con la ruta de tu archivo de video
-    cap = cv2.VideoCapture(video_path)
+# Close all the frames
+cv2.destroyAllWindows() 
 
-    # Especifica el ancho y alto deseados para el video redimensionado
-    new_width = 800# Ancho deseado para el video redimensionado (píxeles)
-    new_height = 600  # Alto deseado para el video redimensionado (píxeles)
-
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if not ret:
-            break
-
-        # Redimensionar el frame
-        frame_resized = resize_frame(frame, new_width, new_height)
-
-        # Convertir el frame a RGB
-        frame_rgb = cv2.cvtColor(frame_resized, cv2.COLOR_BGR2RGB)
-
-        # Realizar la detección de pose
-        results = pose.process(frame_rgb)
-
-        # Dibujar los landmarks de pose en el frame
-        if results.pose_landmarks:
-            mp_drawing = mp.solutions.drawing_utils
-            mp_drawing.draw_landmarks(frame_resized, results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
-
-        # Mostrar el frame redimensionado
-        cv2.imshow('Pose Estimation', frame_resized)
-
-        # Comprobar la tecla de salida
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    # Liberar recursos
-    cap.release()
-    cv2.destroyAllWindows()
-
-if __name__ == "__main__":
-    main()
